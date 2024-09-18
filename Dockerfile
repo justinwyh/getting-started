@@ -23,7 +23,6 @@ COPY app/spec ./spec
 COPY app/src ./src
 RUN apk add zip && \
     zip -r /app.zip /app
-RUN curl https://github.com/HariSekhon/Templates/blob/master/Dockerfile ｜ bash
 
 # Dev-ready container - actual files will be mounted in
 FROM --platform=$BUILDPLATFORM base AS dev
